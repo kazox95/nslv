@@ -34,6 +34,24 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
+<style>
+	
+.boxed-btn {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e100ff;
+  color: #fff;
+  padding: 10px 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.bordered-btn {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  border: 2px solid #cc00ff;
+  padding: 7px 20px;
+  animation: fadeIn 1.5s ease-in-out 0.5s;
+}
+</style>
 <body>
 	
 
@@ -101,7 +119,13 @@
 				
 							<div class="hero-btns">
 								<a href="#services" class="boxed-btn">Découvrir</a>
-								<a href="https://www.instagram.com/naailslv/" target="_blank" class="bordered-btn">Réservez</a>
+								<br>
+								<br>
+<button id="btn-reserver" style="border: 2px solid #f700ff; border-radius: 12px; padding: 10px 20px; background-color: violet; color: #ffffff; font-weight: bold; cursor: pointer; transition: background-color 0.3s, color 0.3s;">
+  Réserver maintenant
+</button>
+
+</div>
 							</div>
 						</div>
 					</div>
@@ -192,6 +216,103 @@
 		</div>
 	</div>
 </section>
+
+
+<section id="reservation-form" style="display:none; padding:50px 20px; background-color:#dd7db5; font-family:sans-serif; color:#333;">
+  <div class="container" style="max-width: 800px; margin: 0 auto;">
+    <h3 class="text-center mb-4" style="text-transform: uppercase; font-size: 1.4em; line-height: 2em; color: rgb(241, 182, 213); text-align: center; margin-bottom: 1em;">
+      Réservez votre pose
+    </h3>
+    <form id="formulaire" action="https://api.web3forms.com/submit" method="POST" style="max-width: 600px; margin: 0 auto; background: rgb(241, 182, 213); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+      <input type="hidden" name="access_key" value="ea0c86a7-da04-4ad0-b29e-1052c0020dc2">
+      <input type="hidden" name="subject" value="Nouvelle réservation NailSlv">
+      <input type="hidden" name="from_name" value="NailSlv">
+
+      <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div class="col-md-6 mb-3" style="flex: 1 1 45%; min-width: 250px;">
+          <label for="name" style="display: block; margin: 20px 0 5px; font-weight: bold; color: #333; font-size: 0.9em;">Nom</label>
+          <input type="text" class="form-control" name="name" required
+            style="width: 100%; padding: 12px; font-size: 1em; border: 1px solid rgb(241, 182, 213); border-radius: 8px; box-sizing: border-box; margin-top: 0.3em; color: #333; transition: border-color 0.3s ease;">
+        </div>
+
+        <div class="col-md-6 mb-3" style="flex: 1 1 45%; min-width: 250px;">
+          <label for="phone" style="display: block; margin: 20px 0 5px; font-weight: bold; color: #333; font-size: 0.9em;">Téléphone (Optionnel) </label>
+          <input type="tel" class="form-control" name="phone"
+            style="width: 100%; padding: 12px; font-size: 1em; border: 1px solid rgb(241, 182, 213); border-radius: 8px; box-sizing: border-box; margin-top: 0.3em; color: #333; transition: border-color 0.3s ease;">
+        </div>
+
+        <div class="col-md-6 mb-3" style="flex: 1 1 45%; min-width: 250px;">
+          <label for="instagram" style="display: block; margin: 20px 0 5px; font-weight: bold; color: #333; font-size: 0.9em;">Votre Instagram</label>
+          <input type="text" class="form-control" name="instagram"
+            style="width: 100%; padding: 12px; font-size: 1em; border: 1px solid rgb(241, 182, 213); border-radius: 8px; box-sizing: border-box; margin-top: 0.3em; color: #333; transition: border-color 0.3s ease;">
+        </div>
+
+        <div class="col-md-6 mb-3" style="flex: 1 1 45%; min-width: 250px;">
+          <label for="category" style="display: block; margin: 20px 0 5px; font-weight: bold; color: #333; font-size: 0.9em;">Type de pose</label>
+          <select name="category" class="form-control" required
+            style="width: 100%; padding: 12px; font-size: 1em; border: 1px solid rgb(241, 182, 213); border-radius: 8px; box-sizing: border-box; margin-top: 0.3em; color: #333; transition: border-color 0.3s ease;">
+            <option value=""> Choisir </option>
+            <option value="Pose Classique">Pose Classique (15€)</option>
+            <option value="Pose French">Pose French (20€)</option>
+            <option value="Pose Nail Art">Pose Nail Art (25€)</option>
+          </select>
+        </div>
+
+        <div class="col-12 mb-3" style="flex: 1 1 100%;">
+          <label for="message" style="display: block; margin: 20px 0 5px; font-weight: bold; color: #333; font-size: 0.9em;">Message (facultatif)</label>
+          <textarea name="message" class="form-control" placeholder="Détails, couleur, style souhaité, communication souhaitée"
+            style="width: 100%; padding: 12px; font-size: 1em; border: 1px solid rgb(241, 182, 213); border-radius: 8px; box-sizing: border-box; margin-top: 0.3em; color: #333; resize: vertical; min-height: 5em; transition: border-color 0.3s ease;"></textarea>
+        </div>
+
+        <div class="col-12 mb-3" style="flex: 1 1 100%;">
+          <label for="date" style="display: block; margin: 20px 0 5px; font-weight: bold; color: #333; font-size: 0.9em;">Date souhaitée</label>
+          <input type="date" name="date" class="form-control" required
+            style="width: 100%; padding: 12px; font-size: 1em; border: 1px solid rgb(241, 182, 213); border-radius: 8px; box-sizing: border-box; margin-top: 0.3em; color: #333; transition: border-color 0.3s ease;">
+        </div>
+
+        <strong>
+          <center>
+            <p>
+              Si le rendez-vous est confirmé, vous recevrez un email de confirmation sous 24h.
+              Prenez RDV au moins 48h à l’avance. Pour une demande urgente (moins de 24h), contactez-moi sur Instagram.
+            </p>
+          </center>
+        </strong>
+
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="col-12 text-center" style="flex: 1 1 100%; text-align: center; margin-top: 20px;">
+          <button type="submit" class="boxed-btn"
+            style="width: 100%; padding: 14px; background: rgb(225, 150, 190); color: #be0000; font-size: 18px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s ease;">
+            Envoyer
+          </button>
+          <div class="form-success text-success mt-2" style="display:none; margin-top: 8px; font-weight: bold; color: green; text-align: center;">
+            Votre demande a bien été envoyée !
+          </div>
+        </div>
+      </div>
+
+    
+      <script>
+        document.getElementById("formulaire").addEventListener("submit", function (e) {
+          const phone = document.querySelector('input[name="phone"]').value.trim();
+          const insta = document.querySelector('input[name="instagram"]').value.trim();
+
+          if (!phone && !insta) {
+            e.preventDefault();
+            alert("Veuillez renseigner au moins un contact : numéro de téléphone ou Instagram.");
+          }
+        });
+      </script>
+
+    </form>
+  </div>
+</section>
+
+
+
+
+
 	<section class="carsl">
 	<br>
 		<div class="row">
@@ -288,7 +409,26 @@
 	<script src="assets/js/sticker.js"></script>
 
 	<script src="assets/js/main.js"></script>
+<script>
+	
 
+  document.getElementById("btn-reserver").addEventListener("click", function () {
+    document.getElementById("reservation-form").style.display = "block";
+    window.scrollTo({
+      top: document.getElementById("reservation-form").offsetTop,
+      behavior: "smooth"
+    });
+  });
+
+ 
+  document.getElementById("formulaire").addEventListener("submit", function (e) {
+    setTimeout(function () {
+      document.querySelector(".form-success").style.display = "block";
+    }, 2000);
+  });
+
+
+</script>
 
 	<div class="youtube" >  
 		<a href="https://cmgvisualy.onrender.com/" class="youtube" target="__blank">
