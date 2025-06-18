@@ -6,7 +6,6 @@ html {
   height: 100%;
 }
 
-
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -1588,7 +1587,6 @@ div.owl-controls, .owl-controls div {
   background-image: url(../img/posefrench2.jpg);
 }
 
-
 .news-bg-3 {
 
   background-image: url(../img/pcs.jpg);
@@ -2775,4 +2773,3 @@ table.order-details tbody td {
 .smu {
   animation: fadeIn 2.5s ease-in-out;
 }
-
